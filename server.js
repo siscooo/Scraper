@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("public"));
 
-// Connect to the Mongo DB
+// Connect to the Mongo DB ATTENTION
 mongoose.connect("mongodb://localhost/week18Populater");
 
 // Routes
@@ -34,7 +34,7 @@ mongoose.connect("mongodb://localhost/week18Populater");
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
-  axios.get("http://www.echojs.com/").then(function(response) {
+  axios.get("https://www.nytimes.com/").then(function(response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(response.data);
 
